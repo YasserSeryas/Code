@@ -1,39 +1,50 @@
 import {component$} from '@builder.io/qwik';
 import type {DocumentHead} from '@builder.io/qwik-city';
-import Button from '~/components/button';
-import Footer from '~/components/footer';
-import GoogleReviews from '~/components/google-reviews';
-import Section1 from '~/components/section1/section1';
-import Section2 from '~/components/section2/section2';
-import Section3 from '~/components/section3/section3';
+import Section1 from '~/components/index/section1/section1';
+import Section2 from '~/components/index/section2/section2';
+import Section3 from '~/components/index/section3/section3';
+import Section4 from '~/components/index/section4/section4';
+import Section5 from '~/components/index/section5/section5';
 
 export default component$(() => {
 	return (
-		<>
-			<main class="w-full flex flex-col items-center">
-				<Section1 />
-				<Section2 />
-				<Section3 />
-				<div class="w-full flex flex-col justify-center items-center gap-12 p-16">
-					<h2 class="text-2xl md:text-5xl font-extrabold">Nous avons des solutions</h2>
-					<Button href='/fonctionnement'>Découvrir nos méthodes</Button>
-				</div>
-				<GoogleReviews />
-				<h2 class='text-xl md:text-5xl font-extrabold py-8'>
-					" Le décoder c'est l'éduquer "
-				</h2>
-			</main>
-			<Footer />
-		</>
+		<main
+			class="
+			flex
+			w-full flex-col items-center justify-center
+		"
+		>
+			<Section1 />
+			<Section2 />
+			<Section3 />
+			<Section4 />
+			<Section5 />
+		</main>
 	);
 });
 
 export const head: DocumentHead = {
-	title: 'CodetDog',
+	title: 'Feldrise - La solution CTO en Bretagne',
 	meta: [
 		{
 			name: 'description',
-			content: 'Le site de CodetDog',
+			content: 'Feldrise est une agence digitale Bretonne proposant un accompagnement complet dans la réalisation technique de votre projet.',
+		},
+		{
+			name: 'og:title',
+			content: 'Feldrise - La solution CTO en Bretagne',
+		},
+		{
+			name: 'og:description',
+			content: 'Feldrise est une agence digitale Bretonne proposant un accompagnement complet dans la réalisation technique de votre projet.',
+		},
+		{
+			name: 'og:url',
+			content: 'https://feldrise.com',
+		},
+		{
+			name: 'og:image',
+			content: 'https://feldrise.com/logo-feldrise/icon-white-logo.png',
 		},
 	],
 };

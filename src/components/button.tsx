@@ -3,22 +3,19 @@ import cx from 'classnames';
 
 interface IButtonProps {
 	href?: string;
-	class?: string;
+	className?: string;
 	type?: 'button' | 'submit' | 'reset';
-    buttonStyle?: 'primary' | 'secondary';
+	buttonStyle?: 'primary' | 'secondary';
 	onClick?: () => void;
 }
 
-export default component$<IButtonProps>((props) => {
-	let className = cx(
-		'w-fit px-6 md:px-12 py-2 duration-300 rounded-md text-lg md:text-3xl font-extrabold text-center',
-		props.class,
-	);
+export default component$<IButtonProps>(props => {
+	let className = cx('w-fit px-8 py-2 duration-300 rounded-md text-xl text-center', props.className);
 
 	if (props.buttonStyle == 'secondary') {
-		className = cx(className, 'bg-white text-primary hover:bg-primary-dark hover:text-white');
+		className += ' bg-white text-primary hover:bg-primary-dark hover:text-white';
 	} else {
-		className = cx(className, 'bg-primary hover:bg-primary-dark');
+		className += ' bg-primary hover:bg-primary-dark';
 	}
 
 	return props.href ? (
@@ -26,11 +23,7 @@ export default component$<IButtonProps>((props) => {
 			<Slot />
 		</a>
 	) : (
-		<button
-			class={className}
-			type={props.type}
-			onClick$={props.onClick}
-		>
+		<button class={className} type={props.type} onClick$={props.onClick}>
 			<Slot />
 		</button>
 	);
